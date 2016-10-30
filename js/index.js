@@ -14,10 +14,8 @@ function getQuote(){
     request.onload = function() {
       //when results of AJAX call have fully loaded check to see if call was successful
       if (request.status >= 200 && request.status < 400) {
-        console.log("Success!");
         //store result of call in var data and convert to JSON object
         var data = JSON.parse(request.responseText);
-        console.log(data);
         //update view with new quote and author
         currentQuote = text.innerHTML = data.quoteText;
         currentAuthor = author.innerHTML = "-" + data.quoteAuthor;
@@ -25,13 +23,11 @@ function getQuote(){
         TweenMax.to([text, author], 0.5,{opacity: 1, delay: 0.8});
         
       } else {
-        //error message for debugging
-        console.log("Server returned error.");
+        //error message for debugging could go here
       }
     };
     //if AJAX call fails fallback to array to stored quotes
     request.onerror = function(){
-      console.log("Error sending request.");
       //backup quotes object
       var backupQuotes = {
           1: ["Start by doing what's necessary; then do what's possible; and suddenly you are doing the impossible.", 'Gen. George S. Patton'],
