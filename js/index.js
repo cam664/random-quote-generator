@@ -9,7 +9,7 @@ function getQuote(){
     //fade out current quote and author
     TweenMax.to([text, author], 0.5,{opacity: 0}); 
     //initialize GET request. Add output of Math.random to URI query to avoid repeat quotes 
-    request.open('GET', 'https://crossorigin.me/http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en&' + Math.random(), true);
+    request.open('GET', 'https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en&' + Math.random(), true);
     
     request.onload = function() {
       //when results of AJAX call have fully loaded check to see if call was successful
